@@ -3,6 +3,14 @@
 # Playbook for creating Oracle folders
 #
 
+- name: deploy_user
+  hosts: dbserver
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+   - role: deploy_user
+
 - name: Creating Oracle_folders
   hosts: dbserver
   become: yes

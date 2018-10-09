@@ -1,5 +1,5 @@
 [control]
-kindredvm ansible_connection=local
+strange ansible_connection=local
 
 [ans1]
 anscen1
@@ -11,5 +11,5 @@ anscen2
 anscen1
 anscen2
 
-[dbserver:vars]
-gather_facts=false
+#[dbserver:vars]
+#gather_facts=false
