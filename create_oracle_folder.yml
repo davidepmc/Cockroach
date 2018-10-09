@@ -1,0 +1,14 @@
+---
+#
+# Playbook for creating Oracle folders
+#
+
+- name: Creating Oracle_folders
+  hosts: dbserver
+  become: yes
+  become_user: root
+  become_method: sudo
+  vars:
+    oracle_version: "{{version}}"
+  roles:
+    - role: create_orcl_folder
