@@ -1,0 +1,39 @@
+---
+  # Coping Oracle software for install it later on
+  
+  - name: create_target_repo
+    file:
+      dest: "{{ target_repo }}"
+      state: directory
+      owner: "{{ oracle_user }}"
+      group: "{{ oracle_group }}"
+      
+      
+  - name: copy and unzip
+    unarchive:
+      copy: y 
+      src: "{{ item }}"
+      dest: "/opt/ORACLE/SOFT" 
+      owner: oracle 
+      group: oradmin
+      mode: 0755
+    with_fileglob:
+      - "{{ local_repo }}/oracle_db_{{version}}/p*"            
+  
+  #- name: copy_soft
+  #  copy: 
+  #    src: "{{ item }}"
+  #    dest: "/opt/ORACLE/SOFT" 
+  #    owner: oracle 
+  #    group: oradmin
+  #    mode: 0660
+  #  with_fileglob:
+  #    - "{{ local_repo }}/oracle_db_{{version}}/p*"
+  #  copy: src= "{{local_repo}}/oracle_db_{{version}}/p13390677_112040_LINUX_1of7.zip" dest= "{{target_repo}}" owner= oracle group= oradmin  
+  #- name: copy_soft
+  #  copy: src= "{{local_repo}}/oracle_db_{{version}}/p13390677_112040_LINUX_2of7.zip" dest= "{{target_repo}}" owner= oracle group= oradmin    
+
+  #- name: copy_soft
+  #  copy: src= "{{local_repo}}/oracle_db_{{version}}/p27734982_112040_Linux-x86-64.zip" dest= "{{target_repo}}" owner= oracle group= oradmin
+    
+...

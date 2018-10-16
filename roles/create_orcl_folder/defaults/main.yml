@@ -11,6 +11,7 @@ ld_library_path: "{{oracle_home}}/lib"
 
 source_repo: "/home/david/Downloads/Oracle/oracle_db_{{oracle_version}}"
 opatch_repo: "{{source_repo}}/opatch"
+local_repo: /opt/dgomez/Downloads/ORACLE
 target_repo: /opt/ORACLE/SOFT
 
 
