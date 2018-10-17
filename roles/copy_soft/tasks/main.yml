@@ -13,7 +13,7 @@
     unarchive:
       copy: y 
       src: "{{ item }}"
-      dest: "/opt/ORACLE/SOFT" 
+      dest: "{{ target_repo }}" 
       owner: oracle 
       group: oradmin
       mode: 0755
