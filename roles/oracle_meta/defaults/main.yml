@@ -1,9 +1,9 @@
 oracle_user: oracle
-oracle_group: oradmin
+oracle_dba_group: oradmin
 
 
 oracle_base: /opt/ORACLE
-oracle_home: "{{oracle_base}}/product/{{version}}/{{oracle_version}}"
+oracle_home: "{{oracle_base}}/product/{{version}}/db_001"
 oracle_admin: "{{oracle_base}}/admin"
 oracle_tns_admin: "{{oracle_base}}/admin/tnsnames/"
 ld_library_path: "{{oracle_home}}/lib"

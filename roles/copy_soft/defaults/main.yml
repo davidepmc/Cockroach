@@ -1,5 +1,5 @@
 oracle_user: oracle
-oracle_group: oradmin
+oracle_dba_group: oradmin
 
 
 local_repo: /home/dgomez/Downloads/Oracle
