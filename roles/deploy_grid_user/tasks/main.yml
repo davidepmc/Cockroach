@@ -11,7 +11,7 @@
      name: grid
      state: present     
      append: yes  # adding user to groups
-     groups: grid,oragrid
+     groups: oragrid
      update_password: always
 
      
