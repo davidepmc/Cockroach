@@ -1,0 +1,13 @@
+---
+# Configuring a single instance oracle database server
+
+# Configuring hosts
+- name: configuring host
+  hosts: "{{ targetgroup }}"
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - role: configure_host
+
+

@@ -3,43 +3,19 @@
 # Playbook for creating Oracle folders
 #
 
+
+ include:
 # Create Oracle user
-- name: deploy_oracle_user
-  hosts: "{{ targetgroup }}"
-  become: yes
-  become_user: root
-  become_method: sudo
-  roles:
-   - role: deploy_user
+ deploy_oracle_user.yml
+
+# Create Grid user
+ deploy_grid_user.yml
 
 # Creating Oracle directories
-- name: Creating_Oracle_folders
-  hosts: "{{ targetgroup }}"
-  become: yes
-  become_user: root
-  become_method: sudo
-  vars:
-    oracle_version: "{{version}}"
-  roles:
-    - role: create_oracle_folders
+ create_oracle_folders.yml
 
 # Configuring hosts
-- name: configuring host
-  hosts: "{{ targetgroup }}"
-  become: yes
-  become_user: root
-  become_method: sudo
-  roles:
-    - role: configuring_host
-
+ configure_host.yml
 
 # Create local_repo and copy and unzip Oracle Software.
-- name: Copy_Soft
-  hosts: "{{ targetgroup }}"
-  become: yes
-  become_user: oracle
-  become_method: sudo
-  vars:
-    oracle_version: "{{version}}"
-  roles:
-    - role: copy_soft
+ copy_soft.yml
