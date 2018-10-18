@@ -9,5 +9,4 @@
   become_method: sudo
   roles:
     - role: configure_host
-
-
+...
