@@ -4,20 +4,20 @@
 
 # Updating repositories
  - name: Setting_Kernel_Parameters
-    copy:     
+   copy:     
       src: sysctl.conf    
       dest: /etc/sysctl.conf
 
  - name: reload_kernel_parameters
-     shell: /sbin/sysctl -p
+   shell: /sbin/sysctl -p
        
  - name: Setting_Limits       
-    copy:
+   copy:
       src: limits.conf
       dest: /etc/security/limits.conf
 
  - name: Updating_Repos
-    yum:
+   yum:
       name: '*'
       state: latest
       exclude: kernel*
