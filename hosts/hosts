@@ -9,7 +9,7 @@ anscen2
 
 [dbserver]
 anscen1
-anscen2
+#anscen2
 
 #[dbserver:vars]
 #gather_facts=false

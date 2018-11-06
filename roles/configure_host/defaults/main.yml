@@ -1,0 +1,36 @@
+--- 
+
+ # default file for host_config
+
+oracle_packages: 
+
+ - binutils
+ - glibc
+ - nss-softokn-freebl
+ - glibc 
+ - nss-softokn-freebl.i686
+ - compat-libstdc++-33
+ - glibc-common
+ - glibc-devel
+ - glibc-devel.i686
+ - glibc-headers
+ - elfutils-libelf
+ - elfutils-libelf-devel
+ - gcc
+ - gcc-c++
+ - ksh
+ - libaio
+ - libaio-devel
+ - libaio.i686
+ - libaio-devel.i686
+ - libgcc
+ - libgcc.i686
+ - libstdc++
+ - libstdc++.i686
+ - libstdc++-devel
+ - make
+ - numactl-devel
+ - sysstat
+ - compat-libstdc++-33.i686
+ - compat-libcap1
+ - unzip
