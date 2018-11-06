@@ -1,6 +1,6 @@
 oracle_user: oracle
-oracle_dba_group: oradmin
+oracle_db_group: oradmin
 
 
-local_repo: /home/dgomez/Downloads/Oracle
+local_repo: /opt/ORACLE/SOFT
 target_repo: /opt/ORACLE/SOFT
