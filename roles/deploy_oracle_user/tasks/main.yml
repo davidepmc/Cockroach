@@ -6,12 +6,18 @@
      name: oradmin
      state: present
 
- - name: Create_oradmin_group
+ - name: Create_oinstall_group
+   group:
+     name: oinstall
+     state: present
+
+
+ - name: Create_oracle_user
    user:
      name: oracle
      state: present     
      append: yes  # adding user to groups
-     groups: oracle,oradmin
+     groups: oracle,oradmin, oinstall
      update_password: always
 
 

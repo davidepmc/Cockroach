@@ -8,6 +8,10 @@
   - name: create_oracle_home
         
     file: dest="{{oracle_home}}" state=directory owner="{{oracle_user}}" group="{{oracle_group}}"
+
+  - name: create_oracle_inventory
+        
+    file: dest="{{oracle_inventory}}" state=directory owner="{{oracle_user}}" group="{{oracle_group}}"
     
     
   - name: create_tns_admin

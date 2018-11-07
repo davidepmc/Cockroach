@@ -7,8 +7,8 @@
   become: yes
   become_user: root
   become_method: sudo
-  #roles:
-  #  - role: configure_host
+  roles:
+    - role: configure_host
   tasks:
    - selinux: 
        policy: targeted

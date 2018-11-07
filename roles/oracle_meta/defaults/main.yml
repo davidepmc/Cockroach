@@ -4,6 +4,7 @@ oracle_dba_group: oradmin
 
 oracle_base: /opt/ORACLE
 oracle_home: "{{oracle_base}}/product/{{version}}/db_001"
+oracle_inventory: "{{oracle_base}}/oraInventory"
 oracle_admin: "{{oracle_base}}/admin"
 oracle_tns_admin: "{{oracle_base}}/admin/tnsnames/"
 ld_library_path: "{{oracle_home}}/lib"
@@ -12,7 +13,7 @@ ld_library_path: "{{oracle_home}}/lib"
 source_repo: "/home/david/Downloads/Oracle/oracle_db_{{oracle_version}}"
 opatch_repo: "{{source_repo}}/opatch"
 local_repo: /home/dgomez/Downloads/Oracle
-target_repo: "{{ORACLE_BASE}}/SOFT"
+target_repo: "{{oracle_base}}/SOFT"
 
 
 

@@ -8,6 +8,7 @@ oracle_packages:
  - glibc
  - nss-softokn-freebl
  - glibc 
+ - glibc.i686
  - nss-softokn-freebl.i686
  - compat-libstdc++-33
  - glibc-common

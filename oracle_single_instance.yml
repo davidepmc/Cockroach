@@ -17,5 +17,10 @@
 # Configuring hosts
  configure_host.yml
 
-# Create local_repo and copy and unzip Oracle Software.
+# Create local_repo copy and unzip Oracle Software.
  copy_soft.yml
+
+ # Database installation
+ install_oracle.yml
+
+ 
