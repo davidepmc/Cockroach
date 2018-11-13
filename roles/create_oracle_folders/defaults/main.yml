@@ -11,7 +11,7 @@ ld_library_path: "{{oracle_home}}/lib"
 
 
 local_repo: /opt/ORACLE/SOFT
-target_repo: /opt/ORACLE/SOFT
+remote_repo: /opt/ORACLE/SOFT
 
 
 

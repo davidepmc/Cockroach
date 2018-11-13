@@ -1,19 +1,28 @@
 oracle_user: oracle
 oracle_dba_group: oradmin
+oracle_instal_group: oinstall
 
+grid_user: grid
+grid_group: oragrid
 
+# Oracle variables
 oracle_base: /opt/ORACLE
 oracle_home: "{{oracle_base}}/product/{{version}}/db_001"
+grid_home: "{{ oracle_base }}/product/{{grid_version}}/gi_001"
 oracle_inventory: "{{oracle_base}}/oraInventory"
 oracle_admin: "{{oracle_base}}/admin"
 oracle_tns_admin: "{{oracle_base}}/admin/tnsnames/"
 ld_library_path: "{{oracle_home}}/lib"
 
 
-source_repo: "/home/david/Downloads/Oracle/oracle_db_{{oracle_version}}"
-opatch_repo: "{{source_repo}}/opatch"
-local_repo: /home/dgomez/Downloads/Oracle
-target_repo: "{{oracle_base}}/SOFT"
+
+# Repository variables
+local_repo: /opt/ORACLE/SOFT
+local_opatch_repo: "{{ local_repo }}/opatch"
+local_patch_repo: "{{ local_repo }}/patches"
+remote_repo: "{{oracle_base}}/SOFT"
+remote_opatch_repo: "{{ remote_repo }}"/opatch
+remote_patch_repo: "{{ remote_repo }}"/patches
 
 
 
