@@ -9,7 +9,7 @@
   become_method: sudo
   #roles:
   #  - role: configure_host
-  tasks:
+  posttasks:
    - selinux: 
        policy: targeted
        state: permissive 
