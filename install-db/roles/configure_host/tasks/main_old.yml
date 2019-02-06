@@ -1,0 +1,23 @@
+---
+# Configuring host for Oracle installation
+# This repo will include all steps to set an Oracle database server
+
+# Updating repositories
+ - name: Setting_Kernel_Parameters
+   copy:     
+      src: sysctl.conf    
+      dest: /etc/sysctl.conf
+
+ - name: reload_kernel_parameters
+   shell: /sbin/sysctl -p
+       
+ - name: Setting_Limits       
+   copy:
+      src: limits.conf
+      dest: /etc/security/limits.conf
+
+ - name: Updating_Repos
+   yum:
+      name: '*'
+      state: latest
+      exclude: kernel*

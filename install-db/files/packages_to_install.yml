@@ -1,0 +1,27 @@
+binutils-2*x86_64*
+glibc-2*x86_64* nss-softokn-freebl-3*x86_64*
+glibc-2*i686* nss-softokn-freebl-3*i686*
+compat-libstdc++-33*x86_64*
+glibc-common-2*x86_64*
+glibc-devel-2*x86_64*
+glibc-devel-2*i686*
+glibc-headers-2*x86_64*
+elfutils-libelf-0*x86_64*
+elfutils-libelf-devel-0*x86_64*
+gcc-4*x86_64*
+gcc-c++-4*x86_64*
+ksh-*x86_64*
+libaio-0*x86_64*
+libaio-devel-0*x86_64*
+libaio-0*i686*
+libaio-devel-0*i686*
+libgcc-4*x86_64*
+libgcc-4*i686*
+libstdc++-4*x86_64*
+libstdc++-4*i686*
+libstdc++-devel-4*x86_64*
+make-3.81*x86_64*
+numactl-devel-2*x86_64*
+sysstat-9*x86_64*
+compat-libstdc++-33*i686*
+compat-libcap*

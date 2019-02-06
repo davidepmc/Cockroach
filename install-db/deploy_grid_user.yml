@@ -1,0 +1,12 @@
+---
+# Configuring a single instance oracle database server
+
+# Create Grid user
+- name: deploy_oracle_user
+  hosts: "{{ targetgroup }}"
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+   - role: deploy_grid_user   
+
