@@ -2,7 +2,6 @@
 #
 # Playbook for creating Oracle folders
 #
-
 # Create Oracle user
 - name: deploy_oracle_user
   hosts: "{{ targetgroup }}"

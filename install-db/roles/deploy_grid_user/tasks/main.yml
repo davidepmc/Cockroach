@@ -5,15 +5,14 @@
    group:
      name: oragrid
      state: present
-     gid: 1005
+     
 
- - name: Create_oradmin_group
+ - name: Create_oragrid_group
    user:
-     name: grid
+     name: oragrid
      state: present
-     uid: 1005     
      append: yes  # adding user to groups
-     groups: oragrid
+     groups: oragrid,oinstall
      update_password: always
 
      
