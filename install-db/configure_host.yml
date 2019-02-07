@@ -7,9 +7,15 @@
   become: yes
   become_user: root
   become_method: sudo
+<<<<<<< HEAD:install-db/configure_host.yml
   #roles:
   #  - role: configure_host
   posttasks:
+=======
+  roles:
+    - role: configure_host
+  tasks:
+>>>>>>> master:configure_host.yml
    - selinux: 
        policy: targeted
        state: permissive 

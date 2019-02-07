@@ -4,13 +4,14 @@ oracle_group: oradmin
 
 oracle_base: /opt/ORACLE
 oracle_home: "{{oracle_base}}/product/{{oracle_version}}/db_1"
+oracle_inventory: "{{oracle_base}}/oraInventory"
 oracle_admin: "{{oracle_base}}/admin"
 oracle_tns_admin: "{{oracle_base}}/admin/tnsnames/"
 ld_library_path: "{{oracle_home}}/lib"
 
 
 local_repo: /opt/ORACLE/SOFT
-target_repo: /opt/ORACLE/SOFT
+remote_repo: /opt/ORACLE/SOFT
 
 
 

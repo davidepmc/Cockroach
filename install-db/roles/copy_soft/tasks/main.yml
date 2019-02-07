@@ -6,21 +6,21 @@
       dest: "{{ target_repo }}/DB/{{version}}"
       state: directory
       owner: "{{ oracle_user }}"
-      group: "{{ oracle_db_group }}"
+      group: "{{ oracle_dba_group }}"
 
   - name: create_target_opath
     file:
       dest: "{{ target_repo }}/DB/{{version}}"
       state: directory
       owner: "{{ oracle_user }}"
-      group: "{{ oracle_db_group }}"
+      group: "{{ oracle_dba_group }}"
 
   - name: create_target_patches
     file:
       dest: "{{ target_repo }}/DB/{{version}}/patches"
       state: directory
       owner: "{{ oracle_user }}"
-      group: "{{ oracle_db_group }}"            
+      group: "{{ oracle_dba_group }}"            
       
       
   - name: copy and unzip DB software
