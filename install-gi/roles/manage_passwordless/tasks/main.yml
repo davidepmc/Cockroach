@@ -1,0 +1,29 @@
+---
+- Create ansible user in remote host
+ user:
+  name: "{{ remote_ansible_user }}"
+  password: "{{ansible_user_pass}}"
+  create_home: yes
+  state: present
+
+- Create .ssh directory
+ file:
+  dest: "/home/{{ remote_ansible_user}}/.ssh"
+  state: directory
+  owner: "{{ remote_ansible_user }}"
+  group: "{{ remote_ansible_user }}"
+  mode: 0700
+
+- Copy id_rsa.pub
+ copy:
+   src: "{{ id_rsa.pub }}"  
+   dest: "/home/{{ remote_ansible_user}}/.ssh"
+   owner: "{{ remote_ansible_user }}"
+   group: "{{ remote_ansible_user }}" 
+   mode: 0700 
+
+#- Define passwordless
+# authorized_key:
+#    user: "{{ remote_ansible_user }}"
+#    state: present
+#    key: "{{ lookup('id_rsa.pub', '/home/{{ remote_ansible_user }}/.ssh/id_rsa.pub') }}"

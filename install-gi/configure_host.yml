@@ -7,9 +7,9 @@
   become: yes
   become_user: root
   become_method: sudo
-  roles:
-    - role: configure_host
-  tasks:
+  #roles:
+  #  - role: configure_host
+  posttasks:
    - selinux: 
        policy: targeted
        state: permissive 
