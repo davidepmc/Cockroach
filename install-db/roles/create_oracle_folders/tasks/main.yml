@@ -14,3 +14,4 @@
 
  - name: create_software_repository
    file: dest="{{ remote_repo }}" state=directory owner="{{ oracle_user }}" group="{{ oracle_group }}"    
+   
