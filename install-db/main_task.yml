@@ -26,9 +26,10 @@
   become: yes
   become_user: root
   become_method: sudo
-  vars:
-    oracle_version: "{{version}}"
+  #vars:
+  #  oracle_version: "{{version}}"
   roles:
+    - role: oracle_meta
     - role: create_oracle_folders
 
 # Configuring hosts
@@ -47,7 +48,18 @@
   become: yes
   become_user: oracle
   become_method: sudo
-  vars:
-    oracle_version: "{{version}}"
+  #vars:
+  #  oracle_version: "{{version}}"
   roles:
+    - role: oracle_meta
     - role: copy_soft
+
+# Install Oracle database software at the default location
+- name: db_install
+  hosts: "{{ targetgroup }}"
+  become:  yes
+  become_user: oracle
+  become_method: sudo
+  roles:
+    - role: oracle_meta
+    - role: db_install
