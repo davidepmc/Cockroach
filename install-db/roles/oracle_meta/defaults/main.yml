@@ -6,9 +6,9 @@ grid_user: grid
 grid_group: oragrid
 
 # Oracle variables
-oracle_base: /opt/ORACLE
-oracle_home: "{{oracle_base}}/product/{{version}}/db_001"
-grid_home: "{{ oracle_base }}/product/{{grid_version}}/gi_001"
+oracle_base: /u01/ORACLE
+oracle_home: "{{oracle_base}}/product/{{oracle_db_version[version]}}"
+grid_home: "{{ oracle_base }}/product/{{grid_version}}"
 oracle_inventory: "{{oracle_base}}/oraInventory"
 oracle_admin: "{{oracle_base}}/admin"
 oracle_tns_admin: "{{oracle_base}}/admin/tnsnames/"
@@ -21,22 +21,22 @@ local_repo: /opt/ORACLE/SOFT
 local_opatch_repo: "{{ local_repo }}/opatch"
 local_patch_repo: "{{ local_repo }}/patches"
 remote_repo: "{{oracle_base}}/SOFT"
-remote_opatch_repo: "{{ remote_repo }}"/opatch
-remote_patch_repo: "{{ remote_repo }}"/patches
+remote_patch_repo: "{{ remote_repo }}/patches"
 
 
 
-#oracle_db_versions:
-# 112_db_001:
-#   deprectated: yes
-#   version: 11.2.0.4
-#   template: db_install_11204.rsp
-#   installer: 11.2.0.1/database
-#   opatch: p6880880_122010_Linux-x86-64.zip
-#   autopatch:
-#     - 2017-08/26610308
-#   oneoff:
-#     # Duplicate, should be ignored in case of RAC
-#     - 2017-08/26609783
-#     # OJVM
-#     - 2016-10/24433133/24315824
+oracle_db_versions:
+
+ 12201_db_001:
+   deprecated: no
+   version: 12.2.0.1
+   template: "db_response_{{oracle_db_version[version]}}.rsp"
+   installer: "{{remote_repo}}/{{oracle_db_version[version]}}/database/runInstaller"
+   opatch: p6880880_122010_Linux-x86-64.zip
+   #autopatch:
+   #  - 28822515
+   #oneoff:
+   #  # Duplicate, should be ignored in case of RAC
+   #  - 2017-08/26609783
+   #  # OJVM
+   #  - 2016-10/24433133/24315824

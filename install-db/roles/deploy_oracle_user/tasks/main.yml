@@ -19,7 +19,7 @@
      state: present     
      uid: 1004
      append: yes  # adding user to groups
-     groups: oracle,oradmin, oinstall
+     groups: oradmin, oinstall
      update_password: always
 
 

@@ -30,6 +30,8 @@
   become_user: oracle
   become_method: sudo
   vars:
-   oracle_version: "{{version}}"
+   oracle_version: "{{ oracle_version }}"
   roles:
+   - role: oracle_meta
    - role: copy_soft
+
