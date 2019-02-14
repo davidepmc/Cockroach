@@ -5,7 +5,7 @@
    group:
      name: oradmin
      state: present
-     gid: 1004
+     
 
  - name: Create_oinstall_group
    group:
@@ -17,7 +17,6 @@
    user:
      name: oracle
      state: present     
-     uid: 1004
      append: yes  # adding user to groups
      groups: oradmin, oinstall
      update_password: always

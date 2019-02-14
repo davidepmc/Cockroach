@@ -1,13 +1,13 @@
 oracle_user: oracle
 oracle_dba_group: oradmin
-oracle_instal_group: oinstall
+oracle_install_group: oinstall
 
 grid_user: grid
 grid_group: oragrid
 
 # Oracle variables
 oracle_base: /u01/ORACLE
-oracle_home: "{{oracle_base}}/product/{{oracle_db_version[version]}}"
+oracle_home: "{{oracle_base}}/product/{{oracle_db_version}}"
 grid_home: "{{ oracle_base }}/product/{{grid_version}}"
 oracle_inventory: "{{oracle_base}}/oraInventory"
 oracle_admin: "{{oracle_base}}/admin"
@@ -20,18 +20,18 @@ ld_library_path: "{{oracle_home}}/lib"
 local_repo: /opt/ORACLE/SOFT
 local_opatch_repo: "{{ local_repo }}/opatch"
 local_patch_repo: "{{ local_repo }}/patches"
-remote_repo: "{{oracle_base}}/SOFT"
+remote_repo: "{{oracle_base}}/SOFT/{{oracle_db_version}}"
 remote_patch_repo: "{{ remote_repo }}/patches"
 
 
 
 oracle_db_versions:
 
- 12201_db_001:
+ 12201-db-001:
    deprecated: no
    version: 12.2.0.1
    template: "db_response_{{oracle_db_version[version]}}.rsp"
-   installer: "{{remote_repo}}/{{oracle_db_version[version]}}/database/runInstaller"
+   installer: "{{remote_repo}}/{{oracle_db_version}}/database/runInstaller"
    opatch: p6880880_122010_Linux-x86-64.zip
    #autopatch:
    #  - 28822515

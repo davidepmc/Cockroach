@@ -8,7 +8,7 @@
   become_user: root
   become_method: sudo
   roles:
-    - role: configure_host
+    - role: configure-host
   tasks:
    - selinux: 
        policy: targeted

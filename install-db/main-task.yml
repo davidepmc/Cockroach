@@ -3,25 +3,25 @@
 # Playbook for creating Oracle folders
 #
 # Create Oracle user
-- name: deploy_oracle_user
+- name: deploy Oracle user
   hosts: "{{ targetgroup }}"
   become: yes
   become_user: root
   become_method: sudo
   roles:
-   - role: deploy_oracle_user
+   - role: deploy-oracle-user
 
 # Create Grid user
-- name: deploy_oracle_user
+- name: deploy Grid user
   hosts: "{{ targetgroup }}"
   become: yes
   become_user: root
   become_method: sudo
   roles:
-   - role: deploy_grid_user   
+   - role: deploy-grid-user   
 
 # Creating Oracle directories
-- name: Creating_Oracle_folders
+- name: Creating Oracle folders
   hosts: "{{ targetgroup }}"
   become: yes
   become_user: root
@@ -29,8 +29,7 @@
   #vars:
   #  oracle_version: "{{version}}"
   roles:
-    - role: oracle_meta
-    - role: create_oracle_folders
+    - role: create-oracle-folders
 
 # Configuring hosts
 - name: configuring host
@@ -39,11 +38,11 @@
   become_user: root
   become_method: sudo
   roles:
-    - role: configure_host
+    - role: configure-host
 
 
 # Create local_repo and copy and unzip Oracle Software.
-- name: Copy_Soft
+- name: Copy Soft
   hosts: "{{ targetgroup }}"
   become: yes
   become_user: oracle
@@ -51,14 +50,13 @@
   #vars:
   #  oracle_version: "{{version}}"
   roles:
-    - role: oracle_meta
-    - role: copy_soft
+    - role: copy-soft
 
-# Install Oracle database software at the default location
-- name: db_install
-  hosts: "{{ targetgroup }}"
-  become:  yes
-  become_user: oracle
-  become_method: sudo
-  roles:
-    - role: db_install
+## Install Oracle database software at the default location
+#- name: db_install
+#  hosts: "{{ targetgroup }}"
+#  become:  yes
+#  become_user: oracle
+#  become_method: sudo
+#  roles:
+#    - role: db-install

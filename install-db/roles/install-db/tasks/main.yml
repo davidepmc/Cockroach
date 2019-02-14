@@ -1,0 +1,5 @@
+---
+
+- name: Oracle Single Instance installation
+  hosts: "{{ targetgroup }}"
+  
