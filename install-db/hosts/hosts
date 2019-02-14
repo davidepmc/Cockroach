@@ -1,5 +1,5 @@
 [control]
-strange ansible_connection=local
+laboratory ansible_connection=local
 
 [ans1]
 anscen1
