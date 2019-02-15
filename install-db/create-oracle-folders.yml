@@ -2,13 +2,13 @@
 # Configuring a single instance oracle database server
 
 # Creating Oracle directories
-- name: Creating_Oracle_folders
+- name: Creating Oracle folders
   hosts: "{{ targetgroup }}"
   become: yes
   become_user: root
   become_method: sudo
-  vars:
-    oracle_version: "{{version}}"
+  #vars:
+  #  oracle_version: "{{version}}"
   roles:
-    - role: create_oracle_folders
+    - role: create-oracle-folders
 

@@ -30,8 +30,9 @@ oracle_db_versions:
  12201-db-001:
    deprecated: no
    version: 12.2.0.1
-   template: "db_response_{{oracle_db_version[version]}}.rsp"
-   installer: "{{remote_repo}}/{{oracle_db_version}}/database/runInstaller"
+   #template: "db_response_{{oracle_db_versions[oracle_db_version]['version']}}.rsp"
+   template: "db_response_{{oracle_db_version}}.rsp"
+   installer: "{{remote_repo}}/database/runInstaller"
    opatch: p6880880_122010_Linux-x86-64.zip
    #autopatch:
    #  - 28822515

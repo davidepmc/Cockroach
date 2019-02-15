@@ -52,11 +52,11 @@
   roles:
     - role: copy-soft
 
-## Install Oracle database software at the default location
-#- name: db_install
-#  hosts: "{{ targetgroup }}"
-#  become:  yes
-#  become_user: oracle
-#  become_method: sudo
-#  roles:
-#    - role: db-install
+# Install Oracle database software at the default location
+- name: db_install
+  hosts: "{{ targetgroup }}"
+  become:  yes
+  become_user: oracle
+  become_method: sudo
+  roles:
+    - role: db-install

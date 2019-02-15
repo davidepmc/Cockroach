@@ -1,5 +1,31 @@
 ---
 
+- name: setting response_file
+  set_fact:
+   oracleinstallrsp: "{{remote_repo}}/db_response_{{oracle_db_version}}.rsp"
+   register: rsp
+
+- name: setting installer   
+  set_fact:  
+   #orainstaller:  "{{remote_repo}}/database/runInstaller "
+   orainstaller: "{{oracle_db_versions[oracle_db_version]['installer']}}"
+   register: ins
+
+#- name: print response_file  
+#  debug:
+#  msg: "Response file is:  {{rsp.stdout}} "
+
+#- name: print installer  
+#  debug:
+#  msg: "Installer is: {{ ins.stdout}}"
+
+- name: copying responsefile
+  template:
+    src: "db_response_{{oracle_db_version}}.rsp"
+    dest:  "{{ oracleinstallrsp }}"
+    
+    
+
 - name: Oracle Single Instance installation
   hosts: "{{ targetgroup }}"
-  
+  shell: "{{ orainstaller }} -silent -responseFile {{ oracleinstallrsp }} -ignoreSysPrereqs"

@@ -20,44 +20,44 @@
       dest: "{{ remote_repo }}/patches"
       state: directory
       owner: "{{ oracle_user }}"
-      group: "{{ oracle_install_group }}"            
+      group: "{{ oracle_install_group }}"
       
       
   - name: copy and unzip DB software
     unarchive:
       copy: y 
       src: "{{ item }}"
-      dest: "{{ remote_repo }}/{{ oracle_db_version }}" 
+      dest: "{{ remote_repo }}"
       owner: "{{ oracle_user }}"
-      group: "{{ oracle_install_group }}" 
+      group: "{{ oracle_install_group }}"
       mode: 0755
     with_fileglob:
-      - "{{ local_repo }}/{{oracle_db_version}}/DB_{{oracle_db_version}}*.zip"         
+      - "{{ local_repo }}/DB_{{oracle_db_version}}.zip"         
 
  # Copying Opatch software to target repo
   - name: copy and unzip opatch
     unarchive:
       copy: y 
       src: "{{ item }}"
-      dest: "{{ remote_repo }}/{{ oracle_db_version }}/opatch" 
+      dest: "{{ remote_repo }}/opatch"
       dest: "{{ remote_opatch_repo }}"
       owner: "{{ oracle_user }}"
-      group: "{{ oracle_install_group }}" 
+      group: "{{ oracle_install_group }}"
       mode: 0755
     with_fileglob:
-      - "{{ local_repo }}/{{oracle_db_version}}/patches/p6880880*.zip"        
+      - "{{ local_repo }}/patches/p6880880*.zip"        
 
  # Copying patches to target repo
   - name: copy and unzip patches
     unarchive:
       copy: y 
       src: "{{ item }}"
-      dest: "{{ remote_repo }}/{{ oracle_db_version }}/patches" 
+      dest: "{{ remote_repo }}/patches"
       owner: "{{ oracle_user }}"
-      group: "{{ oracle_install_group }}" 
+      group: "{{ oracle_install_group }}"
       mode: 0755
     with_fileglob:
-      - "{{ local_repo }}/{{oracle_db_version}}/patches/p*"                       
+      - "{{ local_repo }}/patches/p*"                       
   
   #- name: copy_soft
   #  copy: 
