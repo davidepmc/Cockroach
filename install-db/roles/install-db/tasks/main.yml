@@ -26,6 +26,13 @@
     
     
 
-- name: Oracle Single Instance installation
+#- name: Oracle Single Instance installation
+#  hosts: "{{ targetgroup }}"
+#  shell: "{{ orainstaller }} -silent -responseFile {{ oracleinstallrsp }} -ignoreSysPrereqs"
+  
+- name: execute sudo.sh
   hosts: "{{ targetgroup }}"
-  shell: "{{ orainstaller }} -silent -responseFile {{ oracleinstallrsp }} -ignoreSysPrereqs"
+  become: yes
+  become_user: root
+  become_method: sudo
+  shell: "sh {{oracle_home}}/root.sh"
