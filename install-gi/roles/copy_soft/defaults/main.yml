@@ -1,6 +1,0 @@
-oracle_user: oracle
-oracle_db_group: oradmin
-
-
-local_repo: /opt/ORACLE/SOFT
-target_repo: /opt/ORACLE/SOFT
