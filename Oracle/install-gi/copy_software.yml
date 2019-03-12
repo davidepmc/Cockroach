@@ -1,0 +1,35 @@
+---
+#
+# Playbook for creating Oracle folders
+#
+
+## Create Oracle user
+#- name: deploy_user
+#  hosts: "{{ targetgroup }}"
+#  become: yes
+#  become_user: root
+#  become_method: sudo
+#  roles:
+#   - role: deploy_user
+
+## Creating Oracle directories
+#- name: Creating_Oracle_folders
+#  hosts: "{{ targetgroup }}"
+#  become: yes
+#  become_user: root
+#  become_method: sudo
+#  vars:
+#    oracle_version: "{{version}}"
+#  roles:
+#    - role: create_orcl_folder
+
+# Create local_repo and copy and unzip Oracle Software.
+- name: Create target software repository
+  hosts: "{{ targetgroup }}"
+  become: yes
+  become_user: oracle
+  become_method: sudo
+  vars:
+   oracle_version: "{{version}}"
+  roles:
+   - role: copy_soft

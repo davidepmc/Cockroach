@@ -1,0 +1,78 @@
+---
+  # Copying Oracle software for install it later on
+  
+  - name: create_remote_repo
+    file:
+      dest: "{{ remote_repo }}/"
+      state: directory
+      owner: "{{ oracle_user }}"
+      group: "{{ oracle_install_group }}"
+
+  #- name: create_target_opath
+  #  file:
+  #    dest: "{{ remote_repo }}/{{oracle_db_version}}"
+  #    state: directory
+  #    owner: "{{ oracle_user }}"
+  #    group: "{{ oracle_install_group }}"
+
+  - name: create_target_patches
+    file:
+      dest: "{{ remote_repo }}/patches"
+      state: directory
+      owner: "{{ oracle_user }}"
+      group: "{{ oracle_install_group }}"
+      
+      
+  - name: copy and unzip DB software
+    unarchive:
+      copy: y 
+      src: "{{ item }}"
+      dest: "{{ remote_repo }}"
+      owner: "{{ oracle_user }}"
+      group: "{{ oracle_install_group }}"
+      mode: 0755
+    with_fileglob:
+      - "{{ local_repo }}/DB_{{oracle_db_version}}.zip"         
+
+ # Copying Opatch software to target repo
+  - name: copy and unzip opatch
+    unarchive:
+      copy: y 
+      src: "{{ item }}"
+      dest: "{{ remote_repo }}/opatch"
+      dest: "{{ remote_opatch_repo }}"
+      owner: "{{ oracle_user }}"
+      group: "{{ oracle_install_group }}"
+      mode: 0755
+    with_fileglob:
+      - "{{ local_repo }}/patches/p6880880*.zip"        
+
+ # Copying patches to target repo
+  - name: copy and unzip patches
+    unarchive:
+      copy: y 
+      src: "{{ item }}"
+      dest: "{{ remote_repo }}/patches"
+      owner: "{{ oracle_user }}"
+      group: "{{ oracle_install_group }}"
+      mode: 0755
+    with_fileglob:
+      - "{{ local_repo }}/patches/p*"                       
+  
+  #- name: copy_soft
+  #  copy: 
+  #    src: "{{ item }}"
+  #    dest: "/opt/ORACLE/SOFT" 
+  #    owner: oracle 
+  #    group: oradmin
+  #    mode: 0660
+  #  with_fileglob:
+  #    - "{{ local_repo }}/DB{{oracle_db_version}}/p*"
+  #  copy: src= "{{local_repo}}/DB{{oracle_db_version}}/p13390677_112040_LINUX_1of7.zip" dest= "{{remote_repo}}" owner= oracle group= oradmin  
+  #- name: copy_soft
+  #  copy: src= "{{local_repo}}/DB{{oracle_db_version}}/p13390677_112040_LINUX_2of7.zip" dest= "{{remote_repo}}" owner= oracle group= oradmin    
+
+  #- name: copy_soft
+  #  copy: src= "{{local_repo}}/DB{{oracle_db_version}}/p27734982_112040_Linux-x86-64.zip" dest= "{{remote_repo}}" owner= oracle group= oradmin
+    
+...

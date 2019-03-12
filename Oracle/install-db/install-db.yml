@@ -1,0 +1,10 @@
+---
+- name: db_install
+  hosts: "{{ targetgroup }}"
+  become:  yes
+  become_user: oracle
+  become_method: sudo
+  vars:
+   db_oracle_versions: "{{ oracle_db_version }}"
+  roles:
+    - role: install-db

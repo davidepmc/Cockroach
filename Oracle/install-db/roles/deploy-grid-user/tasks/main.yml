@@ -1,0 +1,20 @@
+---
+# Deploying new Oracle username
+
+ - name: Create_oragrid_group
+   group:
+     name: oragrid
+     state: present
+     
+
+ - name: Create_oragrid_group
+   user:
+     name: oragrid
+     state: present
+     append: yes  # adding user to groups
+     groups: oragrid,oinstall
+     update_password: always
+
+     
+
+
