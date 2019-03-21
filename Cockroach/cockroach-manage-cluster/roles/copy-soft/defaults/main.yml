@@ -1,0 +1,5 @@
+crdb_user: cockroach
+crdb_group: crdbdmin
+
+local_repo: /opt/CRDB/SOFT
+target_homr: /u01/crdb
