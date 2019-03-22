@@ -1,0 +1,13 @@
+---
+- name: create cluster
+  hosts: "{{targetgroup}}"
+  become: yes
+  become_method: sudo
+  become_user: root
+  roles:
+   - role: deploy-crdb-user
+   - role: configure-host
+   - role: create-folders
+   - role: copy-soft  
+
+    
