@@ -1,6 +1,0 @@
-...
-
-- name: create cluster
-  hosts: "{targetgroup}"
-  become: 
-  become_method: 

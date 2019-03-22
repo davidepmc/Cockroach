@@ -5,4 +5,5 @@
 cockroach_packages: 
 
  - glibc
- - libncurses
+ - ncurses-devel
+ - ncurses-libs 

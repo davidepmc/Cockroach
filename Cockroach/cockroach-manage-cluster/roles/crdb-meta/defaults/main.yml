@@ -3,14 +3,14 @@ crdb_group: crdbadmin
 
 # Cockroach variables
 crdb_base: /u01/CRDB
-crdb_home: "{{crdb_base}}/product/{{crdb_db_version}}"
+crdb_home: "{{crdb_base}}/product/{{crdb_db_versions}}"
 crdb_data: "{{crdb_base}}/data"
 crdb_bck: "{{crdb_base}}/bck"
 
 
 # Repository variables
 local_repo: /opt/CRDB/SOFT
-remote_home: "{{crdb_base}}/SOFT/{{crdb_db_version}}"
+remote_home: "{{crdb_base}}/SOFT/{{crdb_db_versions}}"
 
 
 crdb_db_versions:
@@ -18,5 +18,5 @@ crdb_db_versions:
  crdb_0216:
    deprecated: no
    version: 2.1.6
-   installation_file: "{{local_repo}}/cockroach-v{{crdb_db_versions.version}}.tgz"
+   installation_file: "{{local_repo}}/cockroach-v{{crdb_db_versions[crdb_db_version]['version']}}.tgz"
    
