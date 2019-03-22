@@ -1,0 +1,8 @@
+---
+- name: deploy user
+  hosts: "{{targetgroup}}"
+  become: yes
+  become_method: sudo
+  become_user: root
+  roles:
+   - role: deploy-crdb-user

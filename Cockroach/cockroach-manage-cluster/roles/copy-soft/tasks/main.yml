@@ -1,0 +1,15 @@
+---
+  # Copying Oracle software for install it later on
+  
+ - name: Copy and unzip DB software
+   unarchive:
+     copy: y 
+     src: "{{ crdb_db_version[crdb_db_version]['installation_file'] }}"
+     dest: "{{ crdb_home }}"
+     owner: "{{ crdb_user }}"
+     group: "{{ crdb_group }}"
+     mode: 0755
+
+ #- name: Copy binary to path      
+ #  copy: "{{dest}}/cockroach"
+ #  desc: "/usr/local/bin"

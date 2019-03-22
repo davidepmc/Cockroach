@@ -1,0 +1,8 @@
+---
+- name: create folders
+  hosts: "{{targetgroup}}"
+  become: yes
+  become_method: sudo
+  become_user: root
+  roles:
+   - role: create-folders

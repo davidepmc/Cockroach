@@ -1,0 +1,9 @@
+--- 
+
+ # default file for host_config
+
+cockroach_packages: 
+
+ - glibc
+ - ncurses-devel
+ - ncurses-libs 
