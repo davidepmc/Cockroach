@@ -13,11 +13,12 @@ local_repo: /opt/CRDB/SOFT
 remote_home: "{{crdb_base}}/SOFT/{{crdb_db_version}}"
 
 
-crdb_db_version:
+crdb_db_versions:
 
  crdb_0216:
-   deprecated: no
-   version: 2.1.6
-   installation_file: "{{local_repo}}/cockroach-v{{crdb_db_version[crdb_db_version]['version']}}.tgz"
-   #installation_file: /opt/CRDB/SOFT/cockroach-v2.1.6.tgz
-   
+  deprecated: no
+  version: 2.1.6
+  #installation_file: "{{local_repo}}/cockroach-v{{crdb_db_versions[crdb_db_version]['version']}}.tgz"
+  
+  
+  #crdb_db_version=crdb_0216

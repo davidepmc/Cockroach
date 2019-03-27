@@ -1,14 +1,43 @@
 ---
   # Copying Oracle software for install it later on
+
+
+ - name: setting installer   
+   set_fact:  
+    #installer: opt/CRDB/SOFT/cockroach-v2.1.6.tgz
+    installer: "{{local_repo}}/cockroach-v{{crdb_db_versions[crdb_db_version]['version']}}.tgz"
+
+ - name: print installer  
+   debug:
+    msg: "Installer is: '{{crdb_group}}'"
   
  - name: Copy and unzip DB software
    unarchive:
-     copy: y 
-     src: "{{ crdb_db_version[crdb_db_version]['installation_file'] }}"
+     copy: y  
+     src: "{{ installer }}"
      dest: "{{ crdb_home }}"
      owner: "{{ crdb_user }}"
      group: "{{ crdb_group }}"
-     mode: 0755
+     mode: 0744
+
+ - name: copy file to /usr/bin
+   copy:
+    remote_src: yes
+    src: "{{ crdb_home }}/cockroach-v{{crdb_db_versions[crdb_db_version]['version']}}.linux-amd64/cockroach"
+    dest: "/usr/bin"
+    owner: root
+    group: root
+    mode: 0755  
+
+# - name: copy binary to remote host
+#   copy: 
+#    src: "{{ installer }}"
+#    dest: "{{ crdb_home }}"
+#    owner: "{{ crdb_user }}"
+#    group: "{{ crdb_group }}"
+
+# - name: extract executable
+#   shell: tar -xvf "{{crdb_home}}/cockroach-v{{crdb_db_versions[crdb_db_version]['version']}}.tgz"
 
  #- name: Copy binary to path      
  #  copy: "{{dest}}/cockroach"

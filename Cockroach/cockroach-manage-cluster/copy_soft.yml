@@ -4,5 +4,7 @@
   become: yes
   become_method: sudo
   become_user: root
+  #vars:
+  # crdb_db_versions: "{{ crdb_db_version }}"
   roles:
    - role: copy-soft  
