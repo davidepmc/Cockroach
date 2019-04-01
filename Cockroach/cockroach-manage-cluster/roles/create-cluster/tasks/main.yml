@@ -1,0 +1,4 @@
+---
+
+- name: Cluster installation
+  shell: "cockroach start --{{crdb_db_versions[crdb_db_version]['secure_mode']}} --'store'={{crdb_db_versions[crdb_db_version]['store']}} --'listen-addr'={{crdb_db_versions[crdb_db_version]['listen-addr']}}:{{crdb_db_versions[crdb_db_version]['main-clus_port']}} --'httpr-addr'={{crdb_db_versions[crdb_db_version]['http-addr']}}"

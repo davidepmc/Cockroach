@@ -19,6 +19,13 @@ crdb_db_versions:
   deprecated: no
   version: 2.1.6
   #installation_file: "{{local_repo}}/cockroach-v{{crdb_db_versions[crdb_db_version]['version']}}.tgz"
+  main_clus_port: 26257
+  secure_mode: insecure
+  store: "{{crdb_data}}"
+  temp_dir: "{{crdb_data}}/temp"
+  listen_addr: anscen1
+  http_addr: localhost:8080
+
   
   
   #crdb_db_version=crdb_0216

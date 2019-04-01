@@ -1,0 +1,2 @@
+  vars:
+   crdb_db_versions: "{{ crdb_db_version }}"
