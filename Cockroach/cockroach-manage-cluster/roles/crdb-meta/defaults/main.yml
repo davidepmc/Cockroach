@@ -24,7 +24,7 @@ crdb_db_versions:
   store: "{{crdb_data}}"
   temp_dir: "{{crdb_data}}/temp"
   listen_addr: anscen1
-  http_addr: localhost:8080
+  http_addr: https://anscen1:8085
 
   
   
